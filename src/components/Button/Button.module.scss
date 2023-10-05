@@ -1,0 +1,91 @@
+.wrapper {
+  $height: 36px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 100px;
+  height: $height;
+  border-radius: 4px;
+  font-size: 1.6rem;
+  line-height: $height;
+  background: var(--white);
+  border: 1px solid transparent;
+  cursor: pointer;
+
+  span {
+    position: relative;
+    top: -1px;
+  }
+  + .wrapper {
+    margin-left: 16px;
+  }
+  &.disable {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  .icon + .title,
+  .title + .icon {
+    margin-left: 8px;
+  }
+
+  .icon {
+    display: inline-block;
+    width: 24px;
+    text-align: center;
+  }
+}
+
+// button style
+
+.rounded {
+  border-radius: 99px;
+  border-color: rgba(22, 24, 35, 0.12);
+  &:hover {
+    background-color: rgba(254, 44, 85, 0.06);
+  }
+}
+
+.primary {
+  background-color: var(--primary-color);
+  color: var(--white);
+  font-weight: 700;
+
+  &:hover {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)),
+      #fe2c55;
+    border-color: var(--primary-color);
+  }
+}
+
+.outline {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  &:hover {
+    background-color: rgba(254, 44, 85, 0.06);
+  }
+}
+
+.text {
+  min-width: 110px;
+  font-weight: 600;
+  border-color: rgba(22, 24, 35, 0.12);
+
+  &:hover {
+    background-color: rgba(22, 24, 35, 0.03);
+  }
+}
+
+// button size
+.small {
+  min-width: 96px;
+  font-weight: 400;
+}
+
+.large {
+  $height: 48px;
+
+  min-width: 208px;
+  font-weight: 600;
+}

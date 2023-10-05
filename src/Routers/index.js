@@ -3,7 +3,7 @@ import Following from "~/pages/Following";
 import Product from "~/pages/Product";
 import Search from "~/pages/Search";
 import Upload from "~/pages/Upload";
-import { HeaderOnly } from "~/components/layout";
+import { HeaderOnly } from "~/components/Layout";
 
 const publicRouters = [
   { path: "/", component: Home },
