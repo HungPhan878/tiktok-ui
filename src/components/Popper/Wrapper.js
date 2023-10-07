@@ -3,10 +3,12 @@ import styles from "./PopperWrapper.module.scss";
 
 const cx = classNames.bind(styles);
 
+function Wrapper({ children, className, arrow }) {
+  const classes = cx("wrapper", className, {
+    arrow: arrow,
+  });
 
-
-function Wrapper({children, className}) {
-    return ( <div className={cx("wrapper",className)}>{children}</div> );
+  return <div className={classes}>{children}</div>;
 }
 
 export default Wrapper;

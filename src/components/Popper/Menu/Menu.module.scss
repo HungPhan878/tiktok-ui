@@ -11,6 +11,19 @@
   padding-bottom: 8px;
 }
 
+// arrow
+.arrow::before {
+  content: "";
+  display: block;
+
+  position: absolute;
+  top: -24px;
+  right: 16px;
+  border: 12px solid;
+  border-color: transparent transparent #fff transparent;
+  filter: drop-shadow(rgba(0, 0, 0, 0.12) 0px 2px 12px);
+}
+
 .menu-item {
   height: 41px;
 
@@ -21,6 +34,10 @@
   border-radius: 0;
   font-weight: 500;
   white-space: nowrap;
+
+  &.separate {
+    border-top: 1px solid rgba(22, 24, 35, 0.12);
+  }
 
   &:hover {
     background: rgba(22, 24, 35, 0.03);

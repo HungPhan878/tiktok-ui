@@ -14,9 +14,13 @@ import {
   faCircleQuestion,
   faKeyboard,
   faCloudArrowDown,
+  faCoins,
+  faGear,
+  faArrowRightFromBracket,
 } from "@fortawesome/free-solid-svg-icons";
-import TippyMessage from "@tippyjs/react/";
+import TippyMessage from "@tippyjs/react";
 import Tippy from "@tippyjs/react/headless";
+import "tippy.js/dist/tippy.css";
 
 // components
 import Button from "~/components/Button";
@@ -25,7 +29,7 @@ import AccountItem from "~/components/AccountItem";
 import styles from "./Header.module.scss";
 import images from "~/assets/images";
 import Menu from "~/components/Popper/Menu";
-import { faMessage, faPaperPlane } from "@fortawesome/free-regular-svg-icons";
+import { faMessage, faMoon, faPaperPlane, faUser } from "@fortawesome/free-regular-svg-icons";
 
 const cx = classNames.bind(styles);
 
@@ -62,6 +66,7 @@ const Menu_items = [
 
 function Header() {
   const [searchResult, setSearchResult] = useState([]);
+  const currentUser = true;
 
   // useEffect(() => {
   //   setTimeout(() => setSearchResult([]));
@@ -77,7 +82,35 @@ function Header() {
     }
   };
 
-  let currentUser = true;
+  const userMenu = [
+    {
+      icon: <FontAwesomeIcon icon={faUser} />,
+      title: "View profile",
+      to: "./profile",
+    },
+    {
+      icon: <FontAwesomeIcon icon={faCoins} />,
+      title: "Get Coins",
+      to: "./coin",
+    },
+    {
+      icon: <FontAwesomeIcon icon={faGear} />,
+      title: "Settings",
+      to: "./setting",
+    },
+    ...Menu_items,
+    {
+      icon: <FontAwesomeIcon icon={faMoon} />,
+      title: "Dark mode",
+      
+    },
+    {
+      icon: <FontAwesomeIcon icon={faArrowRightFromBracket} />,
+      title: "Log out",
+      to:"./logout",
+      separate:true,
+    },
+  ];
   return (
     <header className={cx("header")}>
       <div className="container">
@@ -125,10 +158,17 @@ function Header() {
           <div className={cx("actions")}>
             {currentUser ? (
               <div>
-                <TippyMessage content="Upload" placement="bottom">
-                  <Button className={cx("action-user__btn")}>
-                    <FontAwesomeIcon icon={faCloudArrowDown} />
-                  </Button>
+                <TippyMessage
+                  delay={[0, 200]}
+                  
+                  content="Upload"
+                  placement="bottom"
+                >
+                  <div>
+                    <Button className={cx("action-user__btn")}>
+                      <FontAwesomeIcon icon={faCloudArrowDown} />
+                    </Button>
+                  </div>
                 </TippyMessage>
                 {/* 
                 <Button className={cx("action-user__btn")}>
@@ -149,21 +189,21 @@ function Header() {
             )}
 
             {/* menu */}
-            <Menu items={Menu_items} onChange={handleMenuChange}>
+            <Menu items={currentUser?userMenu:Menu_items} onChange={handleMenuChange}>
               {currentUser ? (
-                <>
+                <div>
                   <img
                     className={cx("menu-user__btn")}
                     src="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/4903a6bb55909ac46cf303498547296f~c5_100x100.jpeg?x-expires=1696514400&x-signature=OENZMc0a4bEOtre2n%2Fm1uzIkgio%3D"
                     alt="hanasii"
                   ></img>
-                </>
+                </div>
               ) : (
-                <>
+                <div>
                   <button className={cx("menu-btn")}>
                     <FontAwesomeIcon icon={faEllipsisVertical} />
                   </button>
-                </>
+                </div>
               )}
             </Menu>
           </div>

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Tippy from "@tippyjs/react/headless";
+import "tippy.js/dist/svg-arrow.css";
 import classNames from "classnames/bind";
 
 // components
@@ -38,13 +39,14 @@ function Menu({ children, items, onChange = defaultFn }) {
   };
   return (
     <Tippy
+      offset={[12, 10]}
       delay={[0, 700]}
-      // interactive={true}
+      interactive={true}
       placement="bottom-end"
       // visible
       render={(attrs) => (
         <div className={cx("menu-list")} tabIndex="-1" {...attrs}>
-          <PopperWrapper className={cx("menu-popper")}>
+          <PopperWrapper className={cx("menu-popper", "arrow")}>
             {history.length > 1 && (
               <Header
                 title="Language"
