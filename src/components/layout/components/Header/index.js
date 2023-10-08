@@ -13,11 +13,16 @@ import {
   faLanguage,
   faCircleQuestion,
   faKeyboard,
-  faCloudArrowDown,
   faCoins,
   faGear,
   faArrowRightFromBracket,
 } from "@fortawesome/free-solid-svg-icons";
+import {
+  faMessage,
+  faMoon,
+  faPaperPlane,
+  faUser,
+} from "@fortawesome/free-regular-svg-icons";
 import TippyMessage from "@tippyjs/react";
 import Tippy from "@tippyjs/react/headless";
 import "tippy.js/dist/tippy.css";
@@ -29,7 +34,8 @@ import AccountItem from "~/components/AccountItem";
 import styles from "./Header.module.scss";
 import images from "~/assets/images";
 import Menu from "~/components/Popper/Menu";
-import { faMessage, faMoon, faPaperPlane, faUser } from "@fortawesome/free-regular-svg-icons";
+import { UploadIcon } from "~/components/icons";
+import Image from "~/components/Image";
 
 const cx = classNames.bind(styles);
 
@@ -102,13 +108,12 @@ function Header() {
     {
       icon: <FontAwesomeIcon icon={faMoon} />,
       title: "Dark mode",
-      
     },
     {
       icon: <FontAwesomeIcon icon={faArrowRightFromBracket} />,
       title: "Log out",
-      to:"./logout",
-      separate:true,
+      to: "./logout",
+      separate: true,
     },
   ];
   return (
@@ -160,13 +165,12 @@ function Header() {
               <div>
                 <TippyMessage
                   delay={[0, 200]}
-                  
                   content="Upload"
                   placement="bottom"
                 >
                   <div>
                     <Button className={cx("action-user__btn")}>
-                      <FontAwesomeIcon icon={faCloudArrowDown} />
+                      <UploadIcon />
                     </Button>
                   </div>
                 </TippyMessage>
@@ -189,15 +193,17 @@ function Header() {
             )}
 
             {/* menu */}
-            <Menu items={currentUser?userMenu:Menu_items} onChange={handleMenuChange}>
+            <Menu
+              items={currentUser ? userMenu : Menu_items}
+              onChange={handleMenuChange}
+            >
               {currentUser ? (
-                <div>
-                  <img
-                    className={cx("menu-user__btn")}
-                    src="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/4903a6bb55909ac46cf303498547296f~c5_100x100.jpeg?x-expires=1696514400&x-signature=OENZMc0a4bEOtre2n%2Fm1uzIkgio%3D"
-                    alt="hanasii"
-                  ></img>
-                </div>
+                <Image
+                  className={cx("menu-user__btn")}
+                  src="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/4903a6bb55909ac46cf303498547296f~c5_100x100.jpeg?x-expires=1696514400&x-signature=OENZMc0a4bEOtre2n%2Fm1uzIkgio%3D"
+                  alt="hanasii"
+                  fallback="https://fullstack.edu.vn/static/media/f8-icon.18cd71cfcfa33566a22b.png"
+                />
               ) : (
                 <div>
                   <button className={cx("menu-btn")}>

@@ -17,9 +17,9 @@
   display: block;
 
   position: absolute;
-  top: -24px;
-  right: 16px;
-  border: 12px solid;
+  top: -17px;
+  right: 20px;
+  border: 9px solid;
   border-color: transparent transparent #fff transparent;
   filter: drop-shadow(rgba(0, 0, 0, 0.12) 0px 2px 12px);
 }
@@ -32,7 +32,7 @@
   color: rgb(22, 24, 35);
   padding: 10px 8px 10px 16px;
   border-radius: 0;
-  font-weight: 500;
+  font-weight: 600;
   white-space: nowrap;
 
   &.separate {

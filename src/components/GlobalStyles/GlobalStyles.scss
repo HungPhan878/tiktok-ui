@@ -1,5 +1,4 @@
 @use "reset";
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
 
 *,
 ::before,
@@ -22,7 +21,7 @@ html {
 
 body {
   font-size: 1.6rem;
-  font-family: "Roboto", sans-serif;
+  font-family: TikTokFont, sans-serif;
   line-height: 1.5;
   text-rendering: optimizeSpeed;
   color: var(--text-color);
@@ -47,6 +46,30 @@ input,
   outline: none;
   border: none;
   background-color: transparent;
+}
+// fonts embed
+@font-face {
+  font-family: TikTokDisplayFont;
+  src: url(/assets/fonts/TikTokDisplayFont-Bold.woff2);
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: TikTokFont;
+  src: url(/assets/fonts/TikTokFont-Bold.woff2);
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: TikTokFont;
+  src: url(/assets/fonts/TikTokFont-Semibold.woff2);
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: TikTokFont;
+  src: url(/assets/fonts/TikTokFont-Regular.woff2);
+  font-weight: 400;
 }
 
 // common
@@ -74,4 +97,3 @@ input,
 .tippy-box[data-placement^="bottom"] > .tippy-arrow:before {
   top: -8px;
 }
-
