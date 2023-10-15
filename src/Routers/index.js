@@ -8,7 +8,7 @@ import { HeaderOnly } from "~/components/Layout";
 const publicRouters = [
   { path: "/", component: Home },
   { path: "/following", component: Following },
-  { path: "/product", component: Product },
+  { path: "/:nickname", component: Product },
   { path: "/search", component: Search, layout: null },
   { path: "/upload", component: Upload, layout: HeaderOnly },
 ];
