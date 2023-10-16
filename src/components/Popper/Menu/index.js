@@ -13,7 +13,7 @@ const cx = classNames.bind(styles);
 
 const defaultFn = () => {};
 
-function Menu({ children, items, onChange = defaultFn }) {
+function Menu({ children, items, hideOnClick = false, onChange = defaultFn }) {
   const [history, setHistory] = useState([{ data: items }]);
 
   const currentMenu = history[history.length - 1];
@@ -42,6 +42,7 @@ function Menu({ children, items, onChange = defaultFn }) {
       offset={[12, 12]}
       delay={[0, 700]}
       interactive={true}
+      hideOnClick={hideOnClick}
       placement="bottom-end"
       // visible
       render={(attrs) => (

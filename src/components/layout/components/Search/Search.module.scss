@@ -11,12 +11,21 @@
   background: rgba(22, 24, 35, 0.06);
   border-radius: 92px;
   border: 1px solid transparent;
+
   display: flex;
   align-items: center;
 
-  &:focus-within,
   &:hover {
     border-color: #c5c6c9;
+  }
+
+  &:focus-within {
+    outline: 1px solid #c5c6c9;
+    outline-offset: -1px;
+  }
+
+  &:has(.search-btn__search:focus) {
+    outline-color: transparent;
   }
 
   &:hover .search-btn__search {
@@ -36,6 +45,7 @@
   &:not(:placeholder-shown) ~ .search-btn__search {
     color: initial;
   }
+
   //   cho thang vao the input luon cung duoc
   // &:focus {
   //   outline: 1px solid #c5c6c9;

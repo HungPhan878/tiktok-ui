@@ -33,6 +33,14 @@ function Search() {
     inputRef.current.focus();
   };
 
+  const handleInput = (e) => {
+    const inputValue = e.target.value;
+
+    if (!inputValue.startsWith(" ")) {
+      setSearchValue(inputValue);
+    }
+  };
+
   useEffect(() => {
     if (!setDebounce.trim()) {
       setSearchResult([]);
@@ -77,7 +85,7 @@ function Search() {
             ref={inputRef}
             spellCheck={false}
             className={cx("search__input")}
-            onChange={(e) => setSearchValue(e.target.value)}
+            onChange={handleInput}
             onFocus={() => setShowResult(true)}
           />
 

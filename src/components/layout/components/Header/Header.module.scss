@@ -6,13 +6,16 @@
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 1px;
 }
 
+.header-logo {
+  display: flex;
+}
+
 .inner {
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-
 
 // actions
 .actions {

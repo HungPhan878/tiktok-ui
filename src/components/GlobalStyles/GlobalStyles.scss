@@ -12,6 +12,9 @@
   --height-header: 60px;
   --container: 1150px;
 
+  // var font
+  --font-family: TikTokFont, sans-serif;
+
   // color
   --text-color: #161823;
 }
@@ -21,7 +24,7 @@ html {
 
 body {
   font-size: 1.6rem;
-  font-family: TikTokFont, sans-serif;
+  font-family: var(--font-family);
   line-height: 1.5;
   text-rendering: optimizeSpeed;
   color: var(--text-color);

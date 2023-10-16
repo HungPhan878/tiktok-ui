@@ -4,13 +4,14 @@ import Product from "~/pages/Product";
 import Search from "~/pages/Search";
 import Upload from "~/pages/Upload";
 import { HeaderOnly } from "~/components/Layout";
+import routers from "~/config/routes";
 
 const publicRouters = [
-  { path: "/", component: Home },
-  { path: "/following", component: Following },
-  { path: "/:nickname", component: Product },
-  { path: "/search", component: Search, layout: null },
-  { path: "/upload", component: Upload, layout: HeaderOnly },
+  { path: routers.home, component: Home },
+  { path: routers.following, component: Following },
+  { path: routers.profile, component: Product },
+  { path: routers.search, component: Search, layout: null },
+  { path: routers.upload, component: Upload, layout: HeaderOnly },
 ];
 
 const privateRoutes = [];
