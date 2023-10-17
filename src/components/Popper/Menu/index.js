@@ -44,7 +44,7 @@ function Menu({ children, items, hideOnClick = false, onChange = defaultFn }) {
       interactive={true}
       hideOnClick={hideOnClick}
       placement="bottom-end"
-      // visible
+      visible
       render={(attrs) => (
         <div className={cx("menu-list")} tabIndex="-1" {...attrs}>
           <PopperWrapper className={cx("menu-popper", "arrow")}>
@@ -57,7 +57,7 @@ function Menu({ children, items, hideOnClick = false, onChange = defaultFn }) {
               />
             )}
 
-            {renderItem()}
+            <div className={cx("menu-items")}>{renderItem()}</div>
           </PopperWrapper>
         </div>
       )}

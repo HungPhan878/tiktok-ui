@@ -1,5 +1,5 @@
 import classNames from "classnames/bind";
-import styles from "./DefaultLayout.scss";
+import styles from "./DefaultLayout.module.scss";
 
 
 

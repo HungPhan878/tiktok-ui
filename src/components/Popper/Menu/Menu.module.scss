@@ -24,6 +24,12 @@
   filter: drop-shadow(rgba(0, 0, 0, 0.12) 0px 2px 12px);
 }
 
+.menu-items {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  max-height: 590px;
+}
+
 .menu-item {
   height: 41px;
 
@@ -46,6 +52,7 @@
 
 // Header Menu
 .header-menu {
+  flex-shrink: 0;
   position: relative;
   margin-top: -8px;
   height: 50px;
