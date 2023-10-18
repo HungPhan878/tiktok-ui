@@ -27,7 +27,6 @@ export const MessageIcon = ({
   return (
     <svg
       className={className}
-      class="tiktok-y48l9g-StyledIcon e1nx07zo1"
       width={width}
       height={height}
       data-e2e=""
