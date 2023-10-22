@@ -1,7 +1,5 @@
 // frame
 
-import { useEffect, useState } from "react";
-
 import classNames from "classnames/bind";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -27,7 +25,7 @@ import { MessageIcon, UploadIcon } from "~/components/icons";
 import Image from "~/components/Image";
 import Search from "../Search";
 import { Link } from "react-router-dom";
-import routers from "~/config/routes";
+import config from "~/config";
 
 const cx = classNames.bind(styles);
 
@@ -38,76 +36,6 @@ const Menu_items = [
     children: {
       title: "Language",
       data: [
-        {
-          type: "language",
-          code: "en",
-          title: "English",
-        },
-        {
-          type: "language",
-          code: "vi",
-          title: "Vietnamese",
-        },
-        {
-          type: "language",
-          code: "en",
-          title: "English",
-        },
-        {
-          type: "language",
-          code: "vi",
-          title: "Vietnamese",
-        },
-        {
-          type: "language",
-          code: "en",
-          title: "English",
-        },
-        {
-          type: "language",
-          code: "vi",
-          title: "Vietnamese",
-        },
-        {
-          type: "language",
-          code: "en",
-          title: "English",
-        },
-        {
-          type: "language",
-          code: "vi",
-          title: "Vietnamese",
-        },
-        {
-          type: "language",
-          code: "en",
-          title: "English",
-        },
-        {
-          type: "language",
-          code: "vi",
-          title: "Vietnamese",
-        },
-        {
-          type: "language",
-          code: "en",
-          title: "English",
-        },
-        {
-          type: "language",
-          code: "vi",
-          title: "Vietnamese",
-        },
-        {
-          type: "language",
-          code: "en",
-          title: "English",
-        },
-        {
-          type: "language",
-          code: "vi",
-          title: "Vietnamese",
-        },
         {
           type: "language",
           code: "en",
@@ -177,7 +105,7 @@ function Header() {
     <header className={cx("header")}>
       <div className="container">
         <div className={cx("inner")}>
-          <Link to={routers.home} className={cx("header-logo")}>
+          <Link to={config.routers.home} className={cx("header-logo")}>
             <img src={images.logo} alt="tiktok" />
           </Link>
 

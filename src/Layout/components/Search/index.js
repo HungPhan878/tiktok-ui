@@ -16,7 +16,7 @@ import { Wrapper as PopperWrapper } from "~/components/Popper";
 import AccountItem from "~/components/AccountItem";
 import styles from "./Search.module.scss";
 import { useDebounce } from "~/hooks";
-import * as searchServices from "~/api-services/searchServices";
+import * as searchServices from "~/services/searchService";
 
 const cx = classNames.bind(styles);
 function Search() {
