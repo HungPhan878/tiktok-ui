@@ -13,10 +13,10 @@ import "tippy.js/dist/tippy.css";
 
 // components
 import { Wrapper as PopperWrapper } from "~/components/Popper";
-import AccountItem from "~/components/AccountItem";
 import styles from "./Search.module.scss";
 import { useDebounce } from "~/hooks";
 import * as searchServices from "~/services/searchService";
+import ListSearch from "../ListSearch";
 
 const cx = classNames.bind(styles);
 function Search() {
@@ -25,7 +25,7 @@ function Search() {
   const [showResult, setShowResult] = useState(true);
   const [loading, setLoading] = useState(false);
   const inputRef = useRef();
-  const setDebounce = useDebounce(searchValue, 500);
+  const setDebounceValue = useDebounce(searchValue, 500);
   //   handle
   const handleClear = () => {
     setSearchValue("");
@@ -42,7 +42,7 @@ function Search() {
   };
 
   useEffect(() => {
-    if (!setDebounce.trim()) {
+    if (!setDebounceValue.trim()) {
       setSearchResult([]);
 
       return;
@@ -53,14 +53,14 @@ function Search() {
     const fetchApi = async () => {
       setLoading(true);
 
-      const fetch = await searchServices.search(setDebounce);
+      const fetch = await searchServices.search(setDebounceValue);
 
       setSearchResult(fetch);
       setLoading(false);
     };
 
     fetchApi();
-  }, [setDebounce]);
+  }, [setDebounceValue]);
   return (
     //Using a wrapper <div> or <span> tag around the reference element solves
     //this by creating a new parentNode context.
@@ -72,9 +72,10 @@ function Search() {
           <div className={cx("search-result")} tabIndex="-1" {...attrs}>
             <PopperWrapper>
               <h4 className={cx("search-title")}>Accounts</h4>
-              {searchResult.map((result) => (
-                <AccountItem key={result.id} data={result} />
-              ))}
+
+              {/* list Search */}
+              <ListSearch searchResult={searchResult} />
+              
             </PopperWrapper>
           </div>
         )}
